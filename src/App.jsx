@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import {Home, AddLink } from './home';
+import Home from './home';
 import Calendar from './calendar';
 import PhotoGallery from './photogallery';
 import Footer from './footer';
