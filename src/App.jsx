@@ -1,10 +1,10 @@
 import React from 'react'; 
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import Home from './home';
+import {Home, AddLink } from './home';
 import Calendar from './calendar';
 import PhotoGallery from './photogallery';
 import Footer from './footer';
-
+import 
 
 
 function Photos() {
@@ -12,6 +12,7 @@ function Photos() {
     <div className="wrapper">
       <h2>Troop Photos</h2>
       <PhotoGallery />
+      <AddLink name="Photo Album" href="https://photos.app.goo.gl/VcthaRZn9NtU2kNx7" />
     </div>
   );
 }
