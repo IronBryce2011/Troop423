@@ -12,7 +12,7 @@ function Photos() {
     <div className="wrapper">
       <h2>Troop Photos</h2>
       <PhotoGallery />
-      <AddLink name="Photo Album" href="https://photos.app.goo.gl/VcthaRZn9NtU2kNx7" />
+      <a className="AddLink" name="Photo Album" href="https://photos.app.goo.gl/VcthaRZn9NtU2kNx7" />
     </div>
   );
 }
