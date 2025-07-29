@@ -24,5 +24,5 @@ function Home() {
   );
 }
 
-export default { Home, AddLink };
+export default Home;
  
