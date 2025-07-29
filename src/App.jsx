@@ -4,7 +4,6 @@ import Home from './home';
 import Calendar from './calendar';
 import PhotoGallery from './photogallery';
 import Footer from './footer';
-import 
 
 
 function Photos() {
