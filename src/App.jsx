@@ -4,6 +4,7 @@ import Home from './home';
 import Calendar from './calendar';
 import PhotoGallery from './photogallery';
 import Footer from './footer';
+import AnnouncementDisplay from './Announcements';
 
 
 function Photos() {
@@ -21,31 +22,37 @@ function App() {
       <div className="app-content">
         <Router>
           <nav className="navbar">
-  <NavLink 
-    to="/" 
-    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-  >
-    Home
-  </NavLink>
-
-  <NavLink 
-    to="/calendar" 
-    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-  >
-    Calendar
-  </NavLink>
-   <NavLink 
-    to="/photos" 
-    className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-  >
-    Photos
-  </NavLink>
-</nav>
+            <NavLink 
+              to="/" 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              Home
+            </NavLink>
+            <NavLink 
+              to="/calendar" 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              Calendar
+            </NavLink>
+            <NavLink 
+              to="/photos" 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              Photos
+            </NavLink>
+            <NavLink 
+              to="/announcements" 
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              Announcements
+            </NavLink>
+          </nav>
 
           <Routes>
             <Route  path="/" element={<Home />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/photos" element={<Photos />} />
+            <Route path="/announcements" element={<AnnouncementDisplay />} />
           </Routes>
         </Router>
       </div>
