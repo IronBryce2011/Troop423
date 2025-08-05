@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+axios.defaults.withCredentials = true;
 import './announcement.css';
 
 function AnnouncementDisplay() {
