@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import './gallery.css';
-
+axios.defaults.withCredentials = true;
 const BACKEND_URL = 'https://scout-backend-yuyg.onrender.com';
 
 const Gallery = () => {
