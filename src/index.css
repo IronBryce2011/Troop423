@@ -33,6 +33,8 @@ body, #root {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Links inside the navbar */
