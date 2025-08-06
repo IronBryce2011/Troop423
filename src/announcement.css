@@ -24,6 +24,12 @@
   margin-bottom: 1rem;
   white-space: pre-wrap;
   text-align: left;
+    max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .announcement-date {
