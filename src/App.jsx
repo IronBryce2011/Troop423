@@ -12,7 +12,6 @@ function Photos() {
     <div className="wrapper">
       <h2>Troop Photos</h2>
       <PhotoGallery />
-      <a className="AddLink" href="https://photos.app.goo.gl/SaXD5bWzBM4BwBnH6" > Google Photos Album</a>
     </div>
   );
 }
