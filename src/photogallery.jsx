@@ -26,7 +26,7 @@ const Gallery = () => {
         {uploads.map(upload => (
           <div key={upload.id} className="gallery-card">
             <img
-              src={`${BACKEND_URL}${upload.image_path}`}
+              src={upload.image_path} // ✅ Now using full Cloudinary URL
               alt={upload.caption}
               className="gallery-image"
             />
