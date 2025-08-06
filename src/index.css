@@ -131,3 +131,9 @@ iframe {
 .home { 
   text-align: center;
 }
+@media (min-width: 921px) and (min-height: 919px) {
+  /* Your styles here */
+  .homephoto{
+    width: 50%;
+  }
+}
