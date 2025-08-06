@@ -2,9 +2,12 @@
 
 /* Announcement single display styling */
 .announcement-single {
-  padding: 1.5rem 1rem;
   max-width: 600px;
   margin: 2rem auto;
+    width: 100%;
+  overflow-x: hidden;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .announcement-title {
