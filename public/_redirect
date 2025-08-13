@@ -1,7 +1,1 @@
-# Redirect specific pages to index.html for React Router
-/calendar       /index.html   200
-/photos         /index.html   200
-/announcements  /index.html   200
-
-# Catch-all for any other routes
-/*              /index.html   200
+/*  /index.html  200
