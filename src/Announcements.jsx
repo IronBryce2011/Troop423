@@ -25,8 +25,11 @@ function AnnouncementDisplay() {
 
  
   if (error) return <p>{error}</p>;
-  if (loading) return <div className="loading" ></div>
-
+  if (loading) return (
+    <div className="loading-container">
+    <div className="loading" ></div>
+      </div>
+)
   return (
     <>
       <div className="announcement-single">
