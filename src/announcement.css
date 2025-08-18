@@ -39,11 +39,14 @@
   text-align: right;
 }
 .loading {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
   border-radius: 50%;
-  border: 4 solid light-gray;
-  border-top: dark-gray;
-  animation: spin 2s ease-in-out infinite;
+  border: 4px solid lightgray; /* Light gray border */
+  border-top: 4px solid darkgray; /* Dark gray top border */
+  animation: spin 2s ease-in-out infinite; /* Smooth spinning animation */
 }
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -52,3 +55,4 @@
     transform: rotate(360deg);
   }
 }
+
