@@ -23,7 +23,9 @@ function AnnouncementDisplay() {
     fetchAnnouncement();
   }, []);
 
-  if (loading) return <p>Loading announcement...</p>;
+  if (loading) return(
+    <div className="loading"
+  );
   if (error) return <p>{error}</p>;
   if (!announcement) return <p>No announcement available.</p>;
 
