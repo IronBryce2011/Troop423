@@ -24,7 +24,7 @@ function AnnouncementDisplay() {
   }, []);
 
   if (loading) return(
-    <div className="loading"
+    <div className="loading" > </div>
   );
   if (error) return <p>{error}</p>;
   if (!announcement) return <p>No announcement available.</p>;
