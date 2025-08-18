@@ -47,3 +47,22 @@
   text-align: center;
   color: #333;
 }
+.loading {
+  width: 400px; /* Adjust size as needed */
+  height: 400px;
+  
+  border-radius: 50%;
+  border: 20px solid lightgray; /* Light gray border */
+  border-top: 20px solid darkgray; /* Dark gray top border */
+  animation: spin 2s ease-in-out infinite; /* Smooth spinning animation */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
