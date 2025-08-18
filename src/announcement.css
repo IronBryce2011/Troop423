@@ -1,9 +1,5 @@
 /* Announcement Card Theme Styling */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 /* Announcement single display styling */
 .announcement-single {
   max-width: 600px;
