@@ -25,18 +25,15 @@ function AnnouncementDisplay() {
 
  
   if (error) return <p>{error}</p>;
-  if (!announcement) return <p>No announcement available.</p>;
+  if (loading) return <div className="loading" ></div>
 
   return (
     <>
-      {loading ? (
-     <div className="loading" ></div>
-    ) : (
-        <div className="announcement-single">
+      <div className="announcement-single">
       <h2 className="announcement-title">Announcement</h2>
       <p className="announcement-content">{announcement.content}</p>
       <small className="announcement-date">Posted on: {new Date(announcement.created_at).toLocaleString()}</small>
-    </div> ) }
+    </div>
     </>
   );
 };
