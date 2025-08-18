@@ -25,7 +25,7 @@ const Gallery = () => {
   }, []);
 
   if (loading) {
-    return <div className="loading">Loading...</div>; // ✅ Show loading while fetching
+    return <div className="loading"></div>; // ✅ Show loading while fetching
   }
 
   return (
