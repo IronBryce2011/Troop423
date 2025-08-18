@@ -4,6 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
 }
 /* Announcement single display styling */
 .announcement-single {
