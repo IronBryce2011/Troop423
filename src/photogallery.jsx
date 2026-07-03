@@ -71,28 +71,25 @@ const PhotoGallery = () => {
       <h2 className="gallery-title">Troop 423 Photo Gallery</h2>
       {error && <p className="gallery-error">{error}</p>}
 
-      <div
-        className="carousel"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        <button className="carousel-btn left" onClick={prevSlide}>
-          ❮
-        </button>
+   <div
+  className="carousel"
+  onTouchStart={handleTouchStart}
+  onTouchMove={handleTouchMove}
+  onTouchEnd={handleTouchEnd}
+>
+  <button className="carousel-btn left" onClick={prevSlide}>❮</button>
 
-        <div className="carousel-slide">
-          <img
-            src={uploads[index].image_path}
-            alt={uploads[index].caption}
-            className="carousel-image"
-          />
-        </div>
+  <div className="carousel-slide" style={{ height: "100%" }}>
+    <img
+      src={uploads[index].image_path}
+      alt={uploads[index].caption}
+      className="carousel-image"
+    />
+  </div>
 
-        <button className="carousel-btn right" onClick={nextSlide}>
-          ❯
-        </button>
-      </div>
+  <button className="carousel-btn right" onClick={nextSlide}>❯</button>
+</div>
+
 
       <p className="carousel-caption">{uploads[index].caption}</p>
 
