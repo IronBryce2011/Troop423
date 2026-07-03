@@ -3,24 +3,28 @@ import axios from 'axios';
 
 import './gallery.css';
 axios.defaults.withCredentials = true;
+
 const BACKEND_URL = 'https://scout-backend-yuyg.onrender.com';
 
-const Gallery = () => {
+const PhotoGallery = () => {
   const [uploads, setUploads] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
-  const [index, setIndex] = useState(0); // carousel index
+  const [index, setIndex] = useState(0);
+
+  // Swipe state
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    axios.get(`${BACKEND_URL}/api/uploads`)
-      .then(res => {
+    axios
+      .get(`${BACKEND_URL}/api/uploads`)
+      .then((res) => {
         setUploads(res.data);
         setLoading(false);
       })
-      .catch(err => {
-        console.error(err);
-        setError('Failed to load uploads');
+      .catch(() => {
+        setError('Failed to load photos');
         setLoading(false);
       });
   }, []);
@@ -33,6 +37,27 @@ const Gallery = () => {
     setIndex((prev) => (prev - 1 + uploads.length) % uploads.length);
   };
 
+  // Swipe handlers
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+
+    const distance = touchStartX - touchEndX;
+
+    if (distance > 50) nextSlide(); // swipe left
+    if (distance < -50) prevSlide(); // swipe right
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
   if (loading) {
     return <div className="loading"></div>;
   }
@@ -43,11 +68,18 @@ const Gallery = () => {
 
   return (
     <div className="carousel-container">
-      <h2 className="gallery-title">Photos</h2>
+      <h2 className="gallery-title">Troop 423 Photo Gallery</h2>
       {error && <p className="gallery-error">{error}</p>}
 
-      <div className="carousel">
-        <button className="carousel-btn left" onClick={prevSlide}>❮</button>
+      <div
+        className="carousel"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <button className="carousel-btn left" onClick={prevSlide}>
+          ❮
+        </button>
 
         <div className="carousel-slide">
           <img
@@ -55,11 +87,14 @@ const Gallery = () => {
             alt={uploads[index].caption}
             className="carousel-image"
           />
-          <p className="carousel-caption">{uploads[index].caption}</p>
         </div>
 
-        <button className="carousel-btn right" onClick={nextSlide}>❯</button>
+        <button className="carousel-btn right" onClick={nextSlide}>
+          ❯
+        </button>
       </div>
+
+      <p className="carousel-caption">{uploads[index].caption}</p>
 
       <div className="carousel-dots">
         {uploads.map((_, i) => (
@@ -74,5 +109,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
-
+export default PhotoGallery;
