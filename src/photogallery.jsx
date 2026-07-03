@@ -8,40 +8,66 @@ const BACKEND_URL = 'https://scout-backend-yuyg.onrender.com';
 const Gallery = () => {
   const [uploads, setUploads] = useState([]);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(true); // ✅ Add loading state
+  const [loading, setLoading] = useState(true);
+  const [index, setIndex] = useState(0); // carousel index
 
   useEffect(() => {
-    setLoading(true); // start loading
+    setLoading(true);
     axios.get(`${BACKEND_URL}/api/uploads`)
       .then(res => {
         setUploads(res.data);
-        setLoading(false); // stop loading
+        setLoading(false);
       })
       .catch(err => {
         console.error(err);
         setError('Failed to load uploads');
-        setLoading(false); // stop loading even if there is an error
+        setLoading(false);
       });
   }, []);
 
+  const nextSlide = () => {
+    setIndex((prev) => (prev + 1) % uploads.length);
+  };
+
+  const prevSlide = () => {
+    setIndex((prev) => (prev - 1 + uploads.length) % uploads.length);
+  };
+
   if (loading) {
-    return <div className="loading"></div>; // ✅ Show loading while fetching
+    return <div className="loading"></div>;
+  }
+
+  if (uploads.length === 0) {
+    return <p>No photos uploaded yet.</p>;
   }
 
   return (
-    <div className="gallery-container">
+    <div className="carousel-container">
       <h2 className="gallery-title">Photos</h2>
       {error && <p className="gallery-error">{error}</p>}
-      <div className="gallery-grid">
-        {uploads.map(upload => (
-          <div key={upload.id} className="gallery-card">
-            <img
-              src={upload.image_path}
-              alt={upload.caption}
-              className="gallery-image"
-            />
-            <p className="gallery-caption">{upload.caption}</p>
-          </div>
+
+      <div className="carousel">
+        <button className="carousel-btn left" onClick={prevSlide}>❮</button>
+
+        <div className="carousel-slide">
+          <img
+            src={uploads[index].image_path}
+            alt={uploads[index].caption}
+            className="carousel-image"
+          />
+          <p className="carousel-caption">{uploads[index].caption}</p>
+        </div>
+
+        <button className="carousel-btn right" onClick={nextSlide}>❯</button>
+      </div>
+
+      <div className="carousel-dots">
+        {uploads.map((_, i) => (
+          <span
+            key={i}
+            className={`dot ${i === index ? 'active' : ''}`}
+            onClick={() => setIndex(i)}
+          ></span>
         ))}
       </div>
     </div>
@@ -49,3 +75,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
